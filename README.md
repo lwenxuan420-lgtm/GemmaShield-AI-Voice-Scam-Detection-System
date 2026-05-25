@@ -182,7 +182,7 @@ Features:
 * Gemma 4 risk analysis
 
 ---
-
+```bash
 GemmaShield/
 │
 ├── 🎯 app.py                 # Gradio demo (real-time inference: upload / mic)
