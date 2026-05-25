@@ -211,8 +211,9 @@ GemmaShield/
 │   └── presentation.pdf
 │
 └── 🏆 best_model.pth         # trained CNN weights (EER: 1.34%)
+```
 
-# ⚙️ Installation
+⚙️ Intalling
 
 ```bash
 torch
