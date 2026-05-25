@@ -81,7 +81,7 @@ Human-readable Scam Risk Analysis
 
 ---
 
-# 🧱 Model Architecture
+---# 🧱 Model Architecture
 
 ## CNN Spoof Detector
 
@@ -94,9 +94,16 @@ Human-readable Scam Risk Analysis
 Output:
 
 * REAL probability
-* SPOOF probability
+* FAKE probability
+# 🧠 Training Strategy   
 
----
+- Loss Function: BCEWithLogitsLoss
+- Optimizer: Adam
+- Learning Rate: 1e-3 → 1e-4 (fine-tune)
+
+- Training Strategy:
+  - Stage 1: ASVspoof pretraining (110k samples)
+  - Stage 2: Phone dataset fine-tuning (domain adaptation)
 
 # 📊 Audio Preprocessing
 
@@ -115,6 +122,15 @@ This improves robustness under:
 * real-world telecom audio conditions
 
 ---
+# 📊 Experimental Results
+
+## ASVspoof Benchmark
+
+- Equal Error Rate (EER): **1.34%**
+- Accuracy: ~98% (approx)
+- Inference Time: <1s (CPU)
+- Training samples: 110,000+
+- Validation: speaker-independent split
 
 # 🧠 Gemma 4 Reasoning Module
 
@@ -126,12 +142,29 @@ Gemma 4 analyzes:
 * emotional manipulation indicators
 * impersonation risk
 * scam-related conversational behavior
+Gemma 4 is used as a reasoning layer to:
+
+- interpret ASR transcript outputs
+- detect semantic anomalies
+- analyze fraud patterns in dialogue
+- provide human-readable explanations
 
 Example output:
 
 > "The conversation shows indicators consistent with AI-generated telecom impersonation attempts and contains potential emotional manipulation patterns."
 
 ---
+## 🧪 Example Output
+
+Input Audio → Spoof Model: 0.92
+
+Transcript:
+"Hello, this is your bank..."
+
+Gemma Analysis:
+- Suspicious impersonation detected
+- High fraud probability
+- Recommendation: Verify identity
 
 # 🚀 Live Demo
 
@@ -151,20 +184,48 @@ Features:
 
 # 📂 Project Structure
 
-app.py                 # Gradio application
-model.py               # CNN architecture
-train.py               # Training pipeline
-inference.py           # Inference pipeline
-requirements.txt
-README.md
-best_model.pth
-
----
+GemmaShield/
+│
+├── app.py                  # Gradio demo (real-time inference)
+├── model.py                # CNN spoof detection model
+├── train.py               # ASVspoof + fine-tuning pipeline
+├── inference.py           # evaluation & diagnostics
+│
+├── requirements.txt        # dependencies
+├── README.md
+│
+├── assets/                 # figures
+│   ├── architecture.png
+│   ├── workflow.png
+│   └── demo.png
+│
+├── samples/                # demo audio
+│   ├── real_voice.wav
+│   └── fake_voice.wav
+│
+├── docs/                   # report + slides
+│   ├── report.pdf
+│   └── presentation.pdf
+│
+├── csv/
+│   ├── train.csv
+│   └── test.csv
+│
+└── best_model.pth
 
 # ⚙️ Installation
 
 ```bash
-pip install -r requirements.txt
+torch
+torchaudio
+numpy
+pandas
+scikit-learn
+tqdm
+soundfile
+transformers
+faster-whisper
+gradio
 ```
 
 ---
@@ -203,6 +264,18 @@ GemmaShield focuses on:
 * making AI safety tools more accessible
 
 ---
+# ⚠️ Limitations
+
+- Whisper may degrade under heavy noise
+- Gemma inference is memory intensive
+- CNN model sensitive to domain shift
+
+# 🔮 Future Work
+
+- Lightweight on-device model compression
+- Multi-language scam detection
+- Streaming real-time detection system
+
 
 # 🏁 Summary
 
