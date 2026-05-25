@@ -31,6 +31,7 @@ This project focuses on:
 * social impact applications
 
 ---
+“This system is designed to protect users from the rapidly growing threat of AI voice impersonation scams.”
 
 # 🚀 System Overview
 
@@ -182,36 +183,34 @@ Features:
 
 ---
 
-# 📂 Project Structure
-
 GemmaShield/
 │
-├── app.py                  # Gradio demo (real-time inference)
-├── model.py                # CNN spoof detection model
-├── train.py               # ASVspoof + fine-tuning pipeline
-├── inference.py           # evaluation & diagnostics
+├── 🎯 app.py                 # Gradio demo (real-time inference: upload / mic)
+├── 🧠 model.py               # CNN spoof detection model (log-mel spectrogram input)
+├── ⚙️ train.py               # ASVspoof pretraining + phone dataset fine-tuning
+├── 🔍 inference.py           # batch evaluation + diagnostic testing
 │
-├── requirements.txt        # dependencies
-├── README.md
+├── 📦 requirements.txt       # project dependencies
+├── 📖 README.md              # full project documentation
 │
-├── assets/                 # figures
-│   ├── architecture.png
-│   ├── workflow.png
-│   └── demo.png
+├── 🎨 assets/                # figures and visualizations
+│   ├── architecture.png      # system architecture diagram
+│   ├── workflow.png          # processing pipeline flow
+│   └── demo.png              # UI demo screenshot
 │
-├── samples/                # demo audio
+├── 🎧 samples/               # demo audio examples
 │   ├── real_voice.wav
 │   └── fake_voice.wav
 │
-├── docs/                   # report + slides
-│   ├── report.pdf
-│   └── presentation.pdf
-│
-├── csv/
+├── 📊 csv/                   # dataset metadata
 │   ├── train.csv
 │   └── test.csv
 │
-└── best_model.pth
+├── 📄 docs/                 # academic report and slides
+│   ├── report.pdf
+│   └── presentation.pdf
+│
+└── 🏆 best_model.pth         # trained CNN weights (EER: 1.34%)
 
 # ⚙️ Installation
 
