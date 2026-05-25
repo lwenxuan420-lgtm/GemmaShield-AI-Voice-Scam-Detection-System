@@ -216,3 +216,35 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# =========================
+# MODEL WEIGHTS
+# =========================
+*.pth
+*.pt
+*.bin
+*.safetensors
+
+# =========================
+# HUGGINGFACE CACHE
+# =========================
+.cache/
+huggingface/
+
+# =========================
+# GENERATED FILES
+# =========================
+*.csv
+*.wav
+*.mp3
+
+# =========================
+# RESULTS
+# =========================
+results/
+outputs/
+
+# =========================
+# MAC / WINDOWS
+# =========================
+.DS_Store
+Thumbs.db
