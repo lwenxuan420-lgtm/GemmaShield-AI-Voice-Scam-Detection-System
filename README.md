@@ -344,11 +344,7 @@ Scam: Possible
 Risk: Medium
 Advice: Verify the caller identity before sending money.
 ```
-
 ---
-
-# 📦 Competition Submission
-
 This project submission includes:
 
 ## ✅ Source Code Repository
@@ -389,14 +385,6 @@ Including:
 - robustness findings
 - deployment optimization
 - Gemma4 integration design
-
----
-
-
-# 🏆 Evaluation Criteria Alignment
-
-The project was designed according to the official judging dimensions.
-
 ---
 
 # 🌍 Real-world Impact 
