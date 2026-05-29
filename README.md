@@ -42,7 +42,7 @@ GemmaShield aims to:
 # 🧠 System Architecture
 # 🏗 System Architecture
 The system uses a multimodal AI pipeline:
-
+# Architecture
 ![arch](architecture.png)
 
 The system uses a multimodal AI pipeline:
@@ -89,14 +89,10 @@ EER ≈ 0.00134 on clean ASVspoof benchmark data
 | Real-world 100 samples | Raw real-world recordings | 0.30 |
 | Augmented 50k dataset | Augmented real-world training | 0.03 |
 
----
-
+```
 # 📈 Experimental Visualization
 
 ![eer](eer_chart.png)
-
-```
-
 This demonstrated extremely strong performance under laboratory conditions.
 
 ---
