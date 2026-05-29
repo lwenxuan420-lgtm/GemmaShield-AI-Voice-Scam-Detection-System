@@ -2,11 +2,11 @@
 ## AI Voice Scam Detection System for Elderly Protection
 
 > An AI-powered multimodal scam detection system combining CNN-based voice spoof detection, Whisper speech recognition, and Gemma4 reasoning to help protect elderly users from AI-generated voice scams.
-
----
 # 🖼 Demo Preview
 
 ![demo](assets/demo.png)
+---
+
 
 # 🌟 Project Background
 
@@ -87,6 +87,23 @@ The model achieved:
 
 ```text
 EER ≈ 0.00134 on clean ASVspoof benchmark data
+```markdown
+---
+
+# 📊 EER Comparison
+
+| Dataset | Description | EER |
+|---|---|---|
+| ASVspoof 110k | Clean benchmark dataset | 0.00134 |
+| Real-world 100 samples | Raw real-world recordings | 0.30 |
+| Augmented 50k dataset | Augmented real-world training | 0.03 |
+
+---
+
+# 📈 Experimental Visualization
+
+![eer](assets/eer_chart.png)
+
 ```
 
 This demonstrated extremely strong performance under laboratory conditions.
