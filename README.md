@@ -4,6 +4,9 @@
 > An AI-powered multimodal scam detection system combining CNN-based voice spoof detection, Whisper speech recognition, and Gemma4 reasoning to help protect elderly users from AI-generated voice scams.
 
 ---
+# 🖼 Demo Preview
+
+![demo](assets/demo.png)
 
 # 🌟 Project Background
 
@@ -374,13 +377,6 @@ Including:
 
 ---
 
-## ✅ Online Interactive Demo
-
-Interactive deployment:
-
-https://huggingface.co/spaces/Laura-smith/voice-spoof-detector
-
----
 
 # 🏆 Evaluation Criteria Alignment
 
