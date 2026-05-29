@@ -40,22 +40,13 @@ GemmaShield aims to:
 ---
 
 # 🧠 System Architecture
+# 🏗 System Architecture
+The system uses a multimodal AI pipeline:
+
+![arch](assets/architecture.png)
 
 The system uses a multimodal AI pipeline:
 
-```text
-Audio Input
-    ↓
-CNN Voice Spoof Detection
-    ↓
-Whisper Speech Recognition
-    ↓
-Gemma4 Scam Reasoning
-    ↓
-Human-readable AI Safety Analysis
-```
-
----
 
 # ⚙️ Core Technologies
 
@@ -182,8 +173,21 @@ This significantly improved validation performance.
 ```text
 EER ≈ 0.03
 ```
-
+```pipeline
+100 Real Audio
+    ↓
+Noise Injection
+Pitch Shift
+Replay Simulation
+    ↓
+50k Augmented Data
+    ↓
+Transfer Learning
+    ↓
+CNN Fine-tuning
+```
 ---
+
 
 # 🔍 Key Robustness Finding
 
