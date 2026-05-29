@@ -4,7 +4,7 @@
 > An AI-powered multimodal scam detection system combining CNN-based voice spoof detection, Whisper speech recognition, and Gemma4 reasoning to help protect elderly users from AI-generated voice scams.
 # 🖼 Demo Preview
 
-![demo](assets/demo.png)
+![demo](demo.png)
 ---
 
 
@@ -43,7 +43,7 @@ GemmaShield aims to:
 # 🏗 System Architecture
 The system uses a multimodal AI pipeline:
 
-![arch](assets/architecture.png)
+![arch](architecture.png)
 
 The system uses a multimodal AI pipeline:
 
@@ -93,7 +93,7 @@ EER ≈ 0.00134 on clean ASVspoof benchmark data
 
 # 📈 Experimental Visualization
 
-![eer](assets/eer_chart.png)
+![eer](eer_chart.png)
 
 ```
 
@@ -473,19 +473,6 @@ Key innovations include:
 - real-world domain gap analysis
 
 The project intentionally studies failure cases and robustness limitations rather than only reporting benchmark success.
-
----
-
-# 🎬 Presentation Quality (10%)
-
-The project includes:
-
-- complete technical documentation
-- organized repository structure
-- online deployment
-- interactive demo
-- detailed README
-- professional demo presentation
 
 ---
 
