@@ -42,8 +42,7 @@ GemmaShield aims to:
 # 🧠 System Architecture
 # 🏗 System Architecture
 The system uses a multimodal AI pipeline:
-https://raw.githubusercontent.com/wenxuan420-lgtrm/GemmaShield-AI-Voice-Scam-Detection-System/main/architecture.png
-
+![arch](architecture.png)
 The system uses a multimodal AI pipeline:
 
 
