@@ -503,11 +503,14 @@ GemmaShield/
 ├── inference.py
 ├── best_model.pth
 ├── requirements.txt
-│
-├── data/
-├── augmented_data/
-├── csv/
-├── assets/
+├── fake_data
+├── real-date
+├── architecture.png
+├── eer_chart.png
+├── demo.png
+├── project.ppt
+├── GemmaShield Technical Report
+├── demo video
 └── README.md
 ```
 
