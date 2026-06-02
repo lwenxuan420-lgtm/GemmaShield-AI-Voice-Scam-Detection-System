@@ -1,5 +1,25 @@
 # 🛡️ GemmaShield
+<p align="center">
+  <a href="https://huggingface.co/spaces/Laura-smith/voice-spoof-detector">🌐 Live Demo</a> |
+  <a href="./demo_video.mp4">🎥 Demo Video</a> |
+  <a href="./technical_report.pdf">📄 Technical Report</a>
+</p>
+
+<p align="center">
+  Protecting Elderly Users from AI Voice Scams with Explainable AI
+</p>
 ![Demo](demo.png)
+## 📚 Table of Contents
+
+- [Why GemmaShield Matters](#-why-gemmashield-matters)
+- [User Journey](#-user-journey)
+- [Project Goals](#-project-goals)
+- [Why Gemma 4](#-why-gemma-4)
+- [System Architecture](#-system-architecture)
+- [Voice Spoof Detection Research](#-voice-spoof-detection-research)
+- [Explainable AI](#-explainable-ai-with-gemma-4)
+- [Social Impact](#-social-impact)
+- [Future Work](#-future-work)
 # Protecting Elderly Users from AI Voice Scams with Explainable AI 
 
 An AI-powered multimodal scam detection system that combines:
@@ -51,8 +71,30 @@ do not explain:
 GemmaShield was created to bridge this gap.
 
 Instead of functioning solely as an AI classifier, GemmaShield acts as an AI safety assistant capable of explaining risks in human language.
-
 ---
+
+# 👵 User Journey
+
+GemmaShield is designed around a simple workflow that elderly users can easily understand and operate.
+
+![User Journey](user_journey.png)
+
+```text
+Suspicious Voice Message
+            ↓
+      Upload Audio
+            ↓
+ Voice Authenticity Check
+            ↓
+ Speech Transcription
+            ↓
+ Gemma 4 Scam Analysis
+            ↓
+ Risk Explanation
+            ↓
+ Safety Recommendation
+```
+
 
 # 🎯 Project Goals
 
@@ -94,6 +136,39 @@ Voice Safety Assistant
 ```
 
 ---
+# 🚀 Gemma 4 Capabilities Used
+
+GemmaShield uses Gemma 4 as a reasoning engine rather than a simple chatbot.
+
+The model performs several safety-oriented tasks:
+
+- Scam intent analysis
+- Context-aware risk assessment
+- Fraud indicator identification
+- Elderly-friendly explanation generation
+- Safety recommendation generation
+- Bilingual response support
+
+Reasoning workflow:
+
+```text
+Transcript
+      ↓
+Scam Signal Extraction
+      ↓
+Context Understanding
+      ↓
+Risk Assessment
+      ↓
+Human-Readable Advice
+```
+
+By integrating Gemma 4 into the decision-making pipeline, GemmaShield transforms raw machine learning outputs into explanations that can be understood by non-technical users.
+
+This explainability is a core component of the system's social-good mission.
+
+---
+
 
 # 🏗 System Architecture
 ![Architecture](architecture.png)
@@ -260,6 +335,20 @@ This suggests that the model may learn characteristics of "realness" rather than
 This finding highlights an important challenge for future AI security research.
 
 ---
+# 📖 Lessons Learned
+
+This project revealed that benchmark performance alone is not sufficient for evaluating real-world AI security systems.
+
+Through multiple rounds of experimentation, we observed that:
+
+- Extremely low EER values can be misleading.
+- Data augmentation improves validation metrics but may introduce overfitting.
+- Real-world robustness remains a major challenge.
+- Explainability is essential when deploying AI systems for vulnerable populations.
+
+The most valuable outcome of this project is not the lowest EER achieved, but the understanding of the gap between laboratory evaluation and practical deployment.
+
+These findings motivate our future research on robustness, trustworthy AI, and human-centered security systems.
 
 # 🔄 Current Deployment Strategy
 
@@ -274,13 +363,25 @@ Future robustness research continues separately.
 ---
 
 # 🧠 Explainable AI with Gemma 4
-![Gemma Analysis](Gemma_Analysis.png)
 Gemma 4 receives:
 
 - Speech transcript
 - Spoof probability
 - Contextual scam indicators
-
+## 🧠 Gemma 4 Reasoning Pipeline
+```
+Transcript
++
+Spoof Probability
++
+Risk Signals
+      ↓
+Gemma 4
+      ↓
+Risk Level
+Reason
+Recommendation
+```
 and generates explanations such as:
 
 ```text
@@ -339,6 +440,16 @@ The objective is not only detection accuracy, but user understanding.
 ✅ Real-Time Audio Upload
 
 ---
+# 👥 Target Users
+
+GemmaShield is designed for:
+
+- Elderly individuals vulnerable to voice scams
+- Family members helping older relatives
+- Community centers and senior-care organizations
+- Researchers studying AI safety and voice trustworthiness
+
+The system focuses on accessibility, transparency, and trust rather than purely maximizing benchmark performance.
 
 # 🌍 Social Impact
 
@@ -368,6 +479,21 @@ Current limitations include:
 - Scam assessment should assist, not replace, human judgment
 
 ---
+# 🏆 Alignment with Gemma 4 Hackathon
+
+GemmaShield was developed for the Gemma 4 Developer Competition under the Social Good track.
+
+The project aligns with the competition goals by:
+
+- Addressing a real-world societal challenge
+- Protecting vulnerable populations
+- Leveraging Gemma 4 for explainable reasoning
+- Exploring trustworthy AI deployment
+- Investigating robustness limitations in practical environments
+
+Rather than focusing solely on benchmark performance, GemmaShield emphasizes real-world usability, transparency, and human-centered AI safety.
+
+The project demonstrates how modern language models can be integrated into security systems to provide meaningful assistance beyond simple classification outputs.
 
 # 🔮 Future Work
 
@@ -408,7 +534,7 @@ GemmaShield/
 
 # 👨‍💻 Author
 
-Developed by a Computer Science student exploring:
+Developed as an independent research and engineering project exploring:
 
 - AI Security
 - AI Safety
