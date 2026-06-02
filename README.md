@@ -274,7 +274,7 @@ Future robustness research continues separately.
 ---
 
 # 🧠 Explainable AI with Gemma 4
-![Gemma Analysis](gemma_analysis.png)
+![Gemma Analysis](Gemma_Analysis.png)
 Gemma 4 receives:
 
 - Speech transcript
