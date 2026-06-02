@@ -78,7 +78,6 @@ Instead of functioning solely as an AI classifier, GemmaShield acts as an AI saf
 
 GemmaShield is designed around a simple workflow that elderly users can easily understand and operate.
 
-![User Journey](user_journey.png)
 
 ```text
 Suspicious Voice Message
