@@ -200,7 +200,7 @@ This demonstrated a severe domain gap between benchmark datasets and real-world 
 ---
 
 # 🔬 Data Augmentation Study
-![Augmentation](augmentation_pipeline.png)
+![Augmentation](augmentation.jpg)
 
 To address the limited size of real-world data, a custom augmentation pipeline was developed.
 
@@ -276,7 +276,7 @@ Future robustness research continues separately.
 ---
 
 # 🧠 Explainable AI with Gemma 4
-![Gemma Analysis](gemma_reasoning.png)
+![Gemma Analysis](gemma_reasoning.jpg)
 Gemma 4 receives:
 
 - Speech transcript
