@@ -1,29 +1,58 @@
-# 🛡 GemmaShield
-## AI Voice Scam Detection System for Elderly Protection
+# 🛡️ GemmaShield
+![Demo](demo.png)
+# Protecting Elderly Users from AI Voice Scams with Explainable AI
 
-> An AI-powered multimodal scam detection system combining CNN-based voice spoof detection, Whisper speech recognition, and Gemma4 reasoning to help protect elderly users from AI-generated voice scams.
-# 🖼 Demo Preview
+[English](#english) | [简体中文](#简体中文)
 
-![demo](demo.png)
+An AI-powered multimodal scam detection system that combines:
+
+- Voice Spoof Detection
+- Speech Recognition
+- Large Language Model Reasoning
+- Explainable AI Safety Analysis
+
+to help elderly users identify increasingly sophisticated AI-generated scam calls.
+
+Built with Google Gemma 4.
+
 ---
 
+## 🌍 Why GemmaShield Matters
+![picture](picture.png)
+AI voice cloning technology is rapidly becoming accessible.
 
-# 🌟 Project Background
+Today, scammers can generate highly realistic voices that imitate:
 
-With the rapid advancement of AI voice cloning technology, AI-generated scam calls are becoming increasingly realistic and dangerous, especially for elderly users.
+- family members
+- friends
+- government agencies
+- bank representatives
 
-Current voice spoof detection research often achieves excellent performance on benchmark datasets, but many systems struggle in real-world noisy environments.
+with only a few seconds of recorded speech.
 
-GemmaShield was created to explore:
+Older adults are particularly vulnerable to these attacks because:
 
-- real-world AI voice scam detection
-- robustness challenges
-- explainable AI safety systems
-- elderly-oriented AI interaction
+- they often trust familiar voices
+- they may have limited experience with AI-generated media
+- voice-based scams frequently create urgency and emotional pressure
 
-Rather than only optimizing benchmark scores, this project intentionally investigates the gap between laboratory performance and real-world deployment challenges.
+Unfortunately, most existing voice spoof detection systems only provide a probability score.
 
-The long-term goal of GemmaShield is to build robust and explainable AI safety systems that can genuinely protect vulnerable populations in real environments.
+For non-technical users, outputs such as:
+
+```text
+Fake Probability: 0.82
+```
+
+do not explain:
+
+- Why is this suspicious?
+- What should I do next?
+- How serious is the risk?
+
+GemmaShield was created to bridge this gap.
+
+Instead of functioning solely as an AI classifier, GemmaShield acts as an AI safety assistant capable of explaining risks in human language.
 
 ---
 
@@ -31,452 +60,328 @@ The long-term goal of GemmaShield is to build robust and explainable AI safety s
 
 GemmaShield aims to:
 
-- detect AI-generated fake voices
-- analyze scam risk using LLM reasoning
-- provide understandable explanations for elderly users
-- study robustness limitations in real-world deployment
-- explore multimodal AI security systems
+- Detect AI-generated fake voices
+- Identify potential telecom fraud indicators
+- Provide understandable explanations
+- Assist elderly users in making safer decisions
+- Explore robustness challenges in real-world deployment
+- Study trustworthy AI systems for social good
 
 ---
 
-# 🧠 System Architecture
-# 🏗 System Architecture
-The system uses a multimodal AI pipeline:
-![arch](architecture.png)
-The system uses a multimodal AI pipeline:
+# 🤖 Why Gemma 4
 
+Traditional spoof detection systems stop at classification.
 
-# ⚙️ Core Technologies
+GemmaShield integrates Google Gemma 4 to transform detection results into actionable safety guidance.
 
-| Component | Technology |
-|---|---|
-| Voice Spoof Detection | CNN |
-| Speech Recognition | Faster-Whisper |
-| AI Reasoning | Google Gemma4 |
-| Frontend | Gradio |
-| Deployment | HuggingFace Spaces |
-| Audio Features | Log-Mel Spectrogram |
+Gemma 4 is used for:
 
----
+- Scam transcript analysis
+- Risk reasoning
+- Fraud indicator detection
+- Elderly-friendly explanation generation
+- Bilingual communication support
 
-# 🔬 CNN Voice Spoof Detection
-
-The spoof detection backbone is a CNN model trained on spectrogram features.
-
-## Training Dataset
-
-Initial training used:
-
-- ASVspoof dataset
-- approximately 110,000 clean training samples
-
-## Benchmark Performance
-
-The model achieved:
+This transforms the system from:
 
 ```text
-EER ≈ 0.00134 on clean ASVspoof benchmark data
-```markdown
----
-
-# 📊 EER Comparison
-
-| Dataset | Description | EER |
-|---|---|---|
-| ASVspoof 110k | Clean benchmark dataset | 0.00134 |
-| Real-world 100 samples | Raw real-world recordings | 0.30 |
-| Augmented 50k dataset | Augmented real-world training | 0.03 |
-
-```
-# 📈 Experimental Visualization
-
-![eer](eer_chart.png)
-This demonstrated extremely strong performance under laboratory conditions.
-
----
-
-# ⚠️ Real-World Dataset Problem
-
-Although the model performed well on benchmark datasets, it struggled significantly with real-world audio.
-
-To investigate this issue, we manually collected:
-
-```text
-~100 real-world audio samples
-```
-
-including:
-
-- noisy recordings
-- phone-call audio
-- compressed speech
-- replay attacks
-- microphone variations
-- AI-generated fake voices
-
-However, because the dataset size was extremely small, direct training produced poor results:
-
-```text
-EER ≈ 0.30
-```
-
-This revealed a severe domain gap between laboratory benchmark data and real-world audio conditions.
-
----
-
-# 🔬 Data Augmentation Research
-
-To address the limited dataset size, we developed a custom augmentation pipeline.
-
-The original 100 samples were expanded into approximately:
-
-```text
-~50,000 augmented audio samples
-```
-
-using:
-
-- noise injection
-- pitch shifting
-- waveform perturbation
-- frequency modification
-- replay simulation
-- audio distortion
-
-Additionally:
-
-- CSV metadata was automatically expanded
-- labels were synchronized with generated samples
-
----
-
-# 🧠 Transfer Learning Strategy
-
-Instead of training from scratch, we reused the CNN pretrained on the 110k ASVspoof dataset.
-
-We then:
-
-- froze part of the CNN layers
-- fine-tuned remaining layers
-- retrained on the augmented 50k real-world dataset
-
-This significantly improved validation performance.
-
-## Fine-tuned Result
-
-```text
-EER ≈ 0.03
-```
-```pipeline
-100 Real Audio
-    ↓
-Noise Injection
-Pitch Shift
-Replay Simulation
-    ↓
-50k Augmented Data
-    ↓
-Transfer Learning
-    ↓
-CNN Fine-tuning
-```
----
-
-
-# 🔍 Key Robustness Finding
-
-One of the most important discoveries during this project was:
-
-> Extremely low benchmark EER does not guarantee real-world robustness.
-
-Although the fine-tuned model achieved much lower EER during validation, further testing revealed a critical issue:
-
-- the model became very effective at recognizing genuine speech
-- but struggled to detect unseen real-world fake voices
-
-This suggested that the model had started overfitting to specific real-world characteristics.
-
-In other words:
-
-> the model learned to recognize “realness” rather than truly learning generalized spoof patterns.
-
-This became one of the most important research findings of the project.
-
----
-
-# 🔄 Current Deployment Strategy
-
-After identifying the robustness issue, we decided to:
-
-- remove problematic real-world fine-tuning
-- return to the cleaner ASVspoof-trained model
-- continue future robustness research separately
-
-The currently deployed model therefore focuses on:
-
-- stability
-- generalization
-- benchmark reliability
-
-while future work will continue exploring real-world robustness optimization.
-
----
-
-# 🧠 Gemma4 Integration
-
-GemmaShield deeply integrates:
-
-# Google Gemma4
-
-Traditional spoof detection systems only output probabilities.
-
-Gemma4 transforms the system into an explainable AI assistant capable of generating human-readable scam reasoning for elderly users.
-
-Gemma4 analyzes:
-
-- transcript content
-- spoof probability
-- contextual scam indicators
-
-and generates explanations such as:
-
-```text
-Scam: Possible
-Risk: Medium
-Advice: Verify the caller identity before sending money.
-```
-
-This transforms the project from:
-
-```text
-"AI classifier"
+Voice Classifier
 ```
 
 into:
 
 ```text
-"AI safety assistant"
+Voice Safety Assistant
 ```
+
+---
+
+# 🏗 System Architecture
+![Architecture](architecture.png)
+```text
+Audio Input
+      │
+      ▼
+CNN Voice Spoof Detection
+      │
+      ▼
+Faster-Whisper Speech Recognition
+      │
+      ▼
+Gemma 4 Reasoning Engine
+      │
+      ▼
+Explainable Scam Assessment
+      │
+      ▼
+Elderly-Friendly Safety Advice
+```
+
+---
+
+# ⚙️ Core Technologies
+
+| Component | Technology |
+|------------|------------|
+| Voice Spoof Detection | CNN |
+| Speech Recognition | Faster-Whisper |
+| AI Reasoning | Google Gemma 4 |
+| Frontend | Gradio |
+| Deployment | Hugging Face Spaces |
+| Audio Features | Log-Mel Spectrogram |
+
+---
+
+# 🔬 Voice Spoof Detection Research
+
+A major focus of this project is understanding the gap between laboratory performance and real-world deployment.
+
+---
+
+## Training Dataset
+
+Initial training used:
+
+- ASVspoof Dataset
+- Approximately 110,000 training samples
+
+---
+
+## Benchmark Performance
+
+The CNN model achieved:
+
+```text
+EER ≈ 0.00134
+```
+
+on clean benchmark data.
+
+This indicates extremely strong laboratory performance.
+
+---
+
+# ⚠️ Real-World Deployment Challenge
+
+To evaluate practical robustness, we collected approximately:
+
+```text
+100 real-world audio samples
+```
+
+including:
+
+- phone call recordings
+- replay attacks
+- compressed speech
+- microphone variations
+- noisy environments
+- AI-generated voices
+
+Direct evaluation revealed:
+
+```text
+EER ≈ 0.30
+```
+
+This demonstrated a severe domain gap between benchmark datasets and real-world audio.
+
+---
+
+# 📊 EER Comparison
+![EER](eer_chart.png)
+| Dataset | EER |
+|----------|----------|
+| ASVspoof Benchmark | 0.00134 |
+| Real-world Dataset | 0.30 |
+| Augmented Dataset | 0.03 |
+
+---
+
+# 🔬 Data Augmentation Study
+![Augmentation](augmentation_pipeline.png)
+
+To address the limited size of real-world data, a custom augmentation pipeline was developed.
+
+The original dataset of approximately:
+
+```text
+100 samples
+```
+
+was expanded into:
+
+```text
+50,000 augmented samples
+```
+
+using:
+
+- Noise Injection
+- Pitch Shifting
+- Replay Simulation
+- Frequency Perturbation
+- Audio Distortion
+- Waveform Modification
+
+Metadata and labels were synchronized automatically.
+
+---
+
+# 🧠 Transfer Learning Strategy
+
+Instead of retraining from scratch:
+
+1. ASVspoof-pretrained CNN was retained
+2. Early layers were frozen
+3. Remaining layers were fine-tuned
+4. Augmented real-world data was used for adaptation
+
+Result:
+
+```text
+EER ≈ 0.03
+```
+
+---
+
+# 🔍 Key Research Finding
+
+One of the most important discoveries of this project was:
+
+> Extremely low benchmark EER does not guarantee real-world robustness.
+
+Although fine-tuning improved validation performance, additional testing revealed:
+
+- improved recognition of genuine speech
+- reduced generalization to unseen spoof attacks
+
+This suggests that the model may learn characteristics of "realness" rather than generalized spoof patterns.
+
+This finding highlights an important challenge for future AI security research.
+
+---
+
+# 🔄 Current Deployment Strategy
+
+Because robustness remains a critical challenge, the deployed system currently uses:
+
+- ASVspoof-trained CNN
+- stable inference pipeline
+- conservative deployment strategy
+
+Future robustness research continues separately.
+
+---
+
+# 🧠 Explainable AI with Gemma 4
+![Gemma Analysis](gemma_reasoning.png)
+Gemma 4 receives:
+
+- Speech transcript
+- Spoof probability
+- Contextual scam indicators
+
+and generates explanations such as:
+
+```text
+Potential Scam Detected
+
+Risk Level: Medium
+
+Reason:
+The caller requests urgent financial action
+while claiming to be a family member.
+
+Recommendation:
+Verify identity through another communication channel
+before sending money.
+```
+
+This makes detection results understandable for elderly users.
 
 ---
 
 # 👵 Elderly-Friendly Design
 
-Because the system specifically targets elderly users, accessibility became an important design goal.
+GemmaShield is specifically designed for older adults.
 
-The interface includes:
+Features include:
 
-- large fonts
-- simplified buttons
-- bilingual support (Chinese / English)
-- minimal interaction complexity
-- readable AI explanations
+- Large fonts
+- Simple interaction flow
+- Chinese / English support
+- Readable AI explanations
+- Clear risk categories
+- Actionable recommendations
 
-The goal is not only accurate detection, but also:
-
-> helping elderly users understand WHY a voice may be dangerous.
-
----
-
-# 🎤 Speech Recognition
-
-The project uses:
-
-# Faster-Whisper
-
-for lightweight speech transcription.
-
-Whisper converts uploaded audio into text before sending the transcript to Gemma4 for reasoning and scam analysis.
+The objective is not only detection accuracy, but user understanding.
 
 ---
 
 # 🚀 Features
 
-- ✅ Voice spoof detection
-- ✅ AI scam reasoning
-- ✅ Whisper transcription
-- ✅ Gemma4 explanation system
-- ✅ Elderly-friendly UI
-- ✅ Chinese / English support
-- ✅ HuggingFace deployment
-- ✅ Real-time audio upload
-- ✅ CPU-compatible deployment
+✅ Voice Spoof Detection
+
+✅ Scam Risk Analysis
+
+✅ Faster-Whisper Transcription
+
+✅ Gemma 4 Reasoning
+
+✅ Explainable AI
+
+✅ Elderly-Friendly Interface
+
+✅ Chinese / English Support
+
+✅ Hugging Face Deployment
+
+✅ Real-Time Audio Upload
 
 ---
 
-# 🌐 Online Demo
+# 🌍 Social Impact
 
-## HuggingFace Spaces
+GemmaShield addresses a growing societal challenge:
 
-👉 Demo Link:
+AI-generated voice scams targeting vulnerable populations.
 
-https://huggingface.co/spaces/Laura-smith/voice-spoof-detector
+The project contributes to:
 
-The online demo supports:
+- AI Safety
+- Elderly Protection
+- Digital Trust
+- Explainable AI
+- Responsible AI Deployment
 
-- voice upload
-- real-time detection
-- transcript generation
-- Gemma4 analysis
-- bilingual interaction
-
-To ensure deployment stability within HuggingFace CPU memory limits:
-
-- Gemma4 uses lazy loading
-- lightweight Whisper mode is enabled
-- CPU-safe inference optimization is used
+As voice cloning technology becomes increasingly powerful, systems capable of explaining risks may become an important component of future digital safety infrastructure.
 
 ---
 
-# 📊 Example Output
+# ⚠️ Current Limitations
 
-```text
-✅ SAFE
+Current limitations include:
 
-Real Voice Score: 0.97
-Fake Voice Score: 0.03
-
-Transcript:
-"Hello, this is your grandson..."
-
-AI Analysis:
-Scam: Possible
-Risk: Medium
-Advice: Verify the caller identity before sending money.
-```
----
-This project submission includes:
-
-## ✅ Source Code Repository
-
-Including:
-
-- app.py
-- model.py
-- train.py
-- inference.py
-- augmentation scripts
-- deployment configuration
-- README documentation
+- Real-world spoof detection remains challenging
+- Unseen attack types may reduce performance
+- Background noise may affect transcription quality
+- Scam assessment should assist, not replace, human judgment
 
 ---
 
-## ✅ 5-Minute Demonstration Video
+# 🔮 Future Work
 
-The demo video includes:
+Future directions include:
 
-- project motivation
-- architecture explanation
-- live demo
-- Gemma4 reasoning showcase
-- robustness discussion
-- future research directions
-
----
-
-## ✅ Technical Report
-
-Including:
-
-- dataset construction
-- augmentation pipeline
-- transfer learning experiments
-- EER comparison
-- robustness findings
-- deployment optimization
-- Gemma4 integration design
----
-
-# 🌍 Real-world Impact 
-
-GemmaShield addresses a highly realistic social problem:
-
-> AI-generated scam calls targeting elderly users.
-
-The project emphasizes:
-
-- social value
-- elderly accessibility
-- explainable AI
-- future scalability
-- real-world deployment discussion
-
----
-
-# ⚙️ Technical Excellence 
-The system integrates:
-
-- CNN spoof detection
-- Whisper ASR
-- Gemma4 reasoning
-- transfer learning
-- augmentation pipeline
-- HuggingFace optimization
-
-Technical highlights include:
-
-- EER optimization
-- robustness analysis
-- layer freezing strategy
-- lazy-loaded LLM deployment
-- CPU memory optimization
-
----
-
-# ✅ Functional Completeness 
-
-The demo includes:
-
-- audio upload
-- spoof detection
-- transcript generation
-- AI reasoning
-- bilingual UI
-- runtime feedback
-- HuggingFace deployment
-
-Edge-case handling includes:
-
-- no speech detection
-- delayed Gemma loading
-- CPU-only deployment
-- memory optimization
-
----
-
-# 💡 Innovation
-
-Key innovations include:
-
-- combining spoof detection with LLM reasoning
-- elderly-oriented explainable AI
-- robustness-focused experimentation
-- multimodal AI security architecture
-- real-world domain gap analysis
-
-The project intentionally studies failure cases and robustness limitations rather than only reporting benchmark success.
-
----
-
-# 🖥 Local Deployment
-
-## Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run Application
-
-```bash
-python app.py
-```
-
-Then open:
-
-```text
-http://127.0.0.1:7860
-```
+- Real-time phone call protection
+- Streaming audio analysis
+- Edge-device deployment
+- Multilingual scam detection
+- Adversarial spoof defense
+- Improved robustness training
+- Function Calling integration with Gemma 4
 
 ---
 
@@ -491,71 +396,27 @@ GemmaShield/
 ├── inference.py
 ├── best_model.pth
 ├── requirements.txt
-├── fake_data
-├── real-date
+├── fake_data/
+├── real_data/
 ├── architecture.png
 ├── eer_chart.png
 ├── demo.png
-├── project.ppt
-├── GemmaShield Technical Report
-├── demo video
+├── technical_report.pdf
+├── demo_video.mp4
 └── README.md
 ```
 
 ---
 
-# 📚 Research Significance
+# 👨‍💻 Author
 
-This project explores several important AI research directions:
-
-- AI Security
-- Voice Spoof Detection
-- AI Safety
-- Robustness Research
-- Human-centered AI
-- Explainable AI
-- Multimodal AI Systems
-
-The project demonstrates that:
-
-> achieving low benchmark EER alone is insufficient for real-world deployment.
-
-Robustness and real-world generalization remain critical open challenges.
-
----
-
-# 🔮 Future Work
-
-Future improvements may include:
-
-- stronger robustness training
-- adversarial spoof detection
-- replay attack defense
-- multilingual scam analysis
-- streaming phone-call analysis
-- edge-device optimization
-- real-time call protection
-
----
-
-# ❤️ Social Impact
-
-GemmaShield was designed with a social-good motivation:
-
-> using AI to help protect elderly users from increasingly sophisticated AI voice scams.
-
-As AI-generated voices continue improving, systems like GemmaShield may become increasingly important for future digital safety infrastructure.
-
----
-
-# 👤 Author
-
-Developed by a first-year Computer Science student exploring:
+Developed by a Computer Science student exploring:
 
 - AI Security
 - AI Safety
 - Voice Trustworthiness
-- Human-centered AI
+- Human-Centered AI
+- Explainable AI
 - Multimodal AI Systems
 
 ---
@@ -563,4 +424,5 @@ Developed by a first-year Computer Science student exploring:
 # 📄 License
 
 This project is intended for research and educational purposes.
-````
+
+MIT License.
