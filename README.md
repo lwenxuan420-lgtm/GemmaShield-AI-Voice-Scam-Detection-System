@@ -2,7 +2,7 @@
 ![Demo](demo.png)
 # Protecting Elderly Users from AI Voice Scams with Explainable AI
 
-[English](#english) | [简体中文](#简体中文)
+[English](#english) 
 
 An AI-powered multimodal scam detection system that combines:
 
