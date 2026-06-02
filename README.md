@@ -1,8 +1,6 @@
 # 🛡️ GemmaShield
 ![Demo](demo.png)
-# Protecting Elderly Users from AI Voice Scams with Explainable AI
-
-[English](#english) 
+# Protecting Elderly Users from AI Voice Scams with Explainable AI 
 
 An AI-powered multimodal scam detection system that combines:
 
@@ -200,7 +198,7 @@ This demonstrated a severe domain gap between benchmark datasets and real-world 
 ---
 
 # 🔬 Data Augmentation Study
-![Augmentation](augmentation.jpg)
+![Augmentation](Augmentation.png)
 
 To address the limited size of real-world data, a custom augmentation pipeline was developed.
 
@@ -276,7 +274,7 @@ Future robustness research continues separately.
 ---
 
 # 🧠 Explainable AI with Gemma 4
-![Gemma Analysis](gemma_reasoning.jpg)
+![Gemma Analysis](gemma_analysis.png)
 Gemma 4 receives:
 
 - Speech transcript
