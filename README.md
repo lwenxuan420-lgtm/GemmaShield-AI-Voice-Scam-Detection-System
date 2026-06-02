@@ -8,7 +8,8 @@
 <p align="center">
   Protecting Elderly Users from AI Voice Scams with Explainable AI
 </p>
-![Demo](demo.png)
+
+![demo](demo.png)
 ## 📚 Table of Contents
 
 - [Why GemmaShield Matters](#-why-gemmashield-matters)
