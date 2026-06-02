@@ -36,7 +36,7 @@ Built with Google Gemma 4.
 ---
 
 ## 🌍 Why GemmaShield Matters
-![picture](picture.png)
+![picture](picture.jpg)
 AI voice cloning technology is rapidly becoming accessible.
 
 Today, scammers can generate highly realistic voices that imitate:
