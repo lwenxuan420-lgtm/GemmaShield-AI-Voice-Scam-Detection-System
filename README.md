@@ -17,6 +17,7 @@
 - [Project Goals](#-project-goals)
 - [Why Gemma 4](#-why-gemma-4)
 - [System Architecture](#-system-architecture)
+- [Data Compliance and Privacy Protection](#-Data-Compliance-and-Privacy-Protection)
 - [Voice Spoof Detection Research](#-voice-spoof-detection-research)
 - [Explainable AI](#-explainable-ai-with-gemma-4)
 - [Social Impact](#-social-impact)
@@ -205,7 +206,31 @@ Elderly-Friendly Safety Advice
 | Audio Features | Log-Mel Spectrogram |
 
 ---
+## Data Compliance and Privacy Protection
 
+GemmaShield is developed for research, educational, and social-good purposes. Since the project involves voice data, data compliance and privacy protection are important parts of the system design.
+
+### Data Source Compliance
+
+The voice spoof detection model in this project is trained using the ASVspoof dataset, which is a publicly available research dataset commonly used for academic research on automatic speaker verification and spoofing detection.
+
+This project does not use illegally obtained recordings, private phone calls, or voice data collected without consent. The project also does not collect sensitive personal information from users, such as names, phone numbers, addresses, ID numbers, bank account information, passwords, or family information.
+
+Any demo audio used in the project is only for testing, research, and competition demonstration purposes.
+
+### Privacy Protection
+
+GemmaShield does not require users to provide personal identity information. The system only analyzes the uploaded audio file to estimate whether the voice may be AI-generated and whether the transcript may contain scam-related risks.
+
+The system is not designed to identify the real identity of the speaker. It does not intentionally store, publish, or share user-uploaded voice data.
+
+Users are encouraged not to upload sensitive private conversations, financial information, passwords, or confidential family details.
+
+### Responsible Use
+
+GemmaShield is designed to help elderly users and their families identify potential AI voice scams. The system provides risk warnings, explanations, and safety suggestions, but it should not be treated as a final legal, financial, or law-enforcement decision.
+
+This project should not be used for surveillance, unauthorized speaker identification, identity tracking, or any harmful purpose.
 # 🔬 Voice Spoof Detection Research
 
 A major focus of this project is understanding the gap between laboratory performance and real-world deployment.
@@ -451,31 +476,7 @@ GemmaShield is designed for:
 
 The system focuses on accessibility, transparency, and trust rather than purely maximizing benchmark performance.
 
-## Data Compliance and Privacy Protection
 
-GemmaShield is developed for research, educational, and social-good purposes. Because the project involves voice data, we pay special attention to data compliance and privacy protection.
-
-### Data Source Compliance
-
-The benchmark training data used in this project comes from public research datasets such as ASVspoof, which are commonly used for academic research on automatic speaker verification and spoofing detection.
-
-For real-world testing and demonstration, the project only uses self-collected or consent-based audio samples created for research and evaluation purposes. These samples are used to study the robustness gap between benchmark datasets and real-world audio conditions, such as phone recordings, replay attacks, compression, background noise, and microphone variation.
-
-The project does not use illegally obtained recordings, private phone calls, or voice data collected without consent. Any real-world samples used for testing are not intended for public redistribution.
-
-### Privacy Protection
-
-GemmaShield does not require users to provide personal identity information, such as name, phone number, address, ID number, bank account, password, or other sensitive private information.
-
-When users upload an audio file for testing, the audio is used only for the current detection and analysis process. The system is not designed to identify the real identity of the speaker, and it does not intentionally store, publish, or share user-uploaded voice data.
-
-To reduce privacy risks, users are encouraged not to upload sensitive private conversations, financial information, family secrets, passwords, or other confidential content.
-
-### Responsible Use
-
-GemmaShield is designed to help elderly users and their families identify potential AI voice scams. The system provides risk warnings, explanations, and safety suggestions, but it should not be treated as a final legal, financial, or law-enforcement decision.
-
-This project should not be used for surveillance, unauthorized speaker identification, identity tracking, or any harmful purpose.
 
 # 🌍 Social Impact
 
