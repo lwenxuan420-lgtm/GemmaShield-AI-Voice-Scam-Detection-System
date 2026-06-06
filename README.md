@@ -210,7 +210,7 @@ Elderly-Friendly Safety Advice
 
 GemmaShield is developed for research, educational, and social-good purposes. Since the project involves voice data, data compliance and privacy protection are important parts of the system design.
 
-### Data Source Compliance
+## Data Source Compliance
 
 The voice spoof detection model in this project is trained using the ASVspoof dataset, which is a publicly available research dataset commonly used for academic research on automatic speaker verification and spoofing detection.
 
